@@ -1,0 +1,438 @@
+@import url("../CSS/base_css_style.css");
+* {box-sizing: border-box;}
+body {
+    position: relative;
+    height: 100%;
+    margin: 0;
+    font-family: sans-serif; /* Добавьте базовый шрифт */
+    line-height: 1.5; /* Улучшите читаемость текста */
+}
+a {
+    color: white;
+    font-size: 1rem; /* Используйте относительные единицы */
+    text-decoration: none; /* Уберите подчеркивание по умолчанию */
+}
+.help-btn {
+    display: inline-flex;
+    background-color: #4C5FD5;
+    border-radius: 999rem;
+    padding: 0.625rem 1.25rem; /* Используйте rem */
+    position: fixed;
+    bottom: 1.25rem; /* Используйте rem */
+    right: 1.25rem; /* Используйте rem */
+    margin: 0;
+    cursor: pointer;
+    z-index: 1000; /* Чтобы кнопка была поверх всего */
+}
+/* #help-btn__container{Не используются} */
+.img {
+    width: 1.5rem; /* Используйте rem */
+    height: 1.5rem; /* Используйте rem */
+}
+.help {
+    border: none;
+    background: none;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.8rem; /* Немного уменьшим шрифт на маленьких экранах */
+    display: inline-flex;
+    align-items: center; /* Выровняем иконку и текст по центру */
+    letter-spacing: 0.6px;
+    cursor: pointer;
+    margin-left: 0.3rem; /* Отступ между иконкой и текстом */
+}
+:root {
+    --pix_border: 0.4375rem; /* Переведите в rem */
+}
+
+/* Animation */
+.hover-pulse {
+    animation: pulse 0.5s ease-in-out infinite alternate;
+}
+.focus-shadow {
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.3); /* Переведите в rem */
+    transition: box-shadow 0.3s ease-in-out;
+}
+.hover-move {
+    transform: translateX(0.3125rem); /* Переведите в rem */
+    transition: transform 0.2s ease-in-out, fill 0.2s ease-in-out;
+    fill: #4C5FD5;
+}
+.field-search:hover .arrow-svg {
+    fill: #1a202c;
+}
+.fade-in {
+    opacity: 1 !important;
+    transition: opacity 0.5s ease-in-out;
+}
+.list-element__element {
+    opacity: 0;
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.slide-in-left {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+}
+.slide-in-right {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+}
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.05);
+    }
+}
+
+/* Header */
+.topbar{
+    display: flex;
+    background-color: black;
+    height: 5.5rem; /* Используйте rem */
+    width: 100%;
+    padding: 0 1rem; /* Добавим немного внутреннего отступа по бокам */
+}
+.topbar-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px; /* Ограничим максимальную ширину контейнера */
+    margin: 0 auto; /* Центрируем контейнер */
+    padding: 0 1rem; /* Добавим внутренние отступы */
+}
+.topbar-container__logo {
+    display: flex;
+    align-items: center;
+}
+.svg-logo{
+    padding: 0.0625rem 0 0 0; /* Используйте rem */
+    height: 1.5rem; /* Используйте rem */
+    transition: opacity .1s ease;
+    &:hover{
+        opacity: .8;
+    }
+}
+.link-help-center {
+    padding: 0.1875rem 0 0 0.625rem; /* Используйте rem */
+    margin: 0 0 0 0.625rem; /* Используйте rem */
+    border-left: 0.125rem solid #fff; /* Используйте rem */
+    white-space: nowrap;
+    font-size: 0.875rem; /* Используйте rem */
+}
+.topbar-container__menu{
+    display: flex;
+    white-space: nowrap;
+    align-items: center; /* Выровняем элементы меню по вертикали */
+}
+/* .topbar-container__search {Не используются} */
+#search{
+    height: 3.3rem; /* Используйте rem */
+    width: 16.5rem; /* Используйте rem */
+    padding: 0.625rem 1.25rem 0.625rem 1rem; /* Используйте rem */
+    font-size: 1rem; /* Используйте rem */
+    border-radius: 0.4375rem; /* Используйте rem */
+    margin-right: 1rem; /* Отступ справа от поиска */
+}
+#search::-webkit-input-placeholder{
+    color: rgb(135, 135, 135);
+    font-weight: 400;
+}
+.topbar-container__btn-header {
+    display: flex; /* Для удобного расположения кнопок */
+    gap: 0.5rem; /* Отступ между кнопками */
+}
+.btn {
+    background-color: #4C5FD5;
+    border-radius: 0.4375rem; /* Используйте rem */
+    font-size: 1rem; /* Используйте rem */
+    line-height: 1.5;
+    font-weight: 400;
+    cursor: pointer;
+    padding: 0.5rem 1rem; /* Общие отступы для кнопок */
+}
+.btn-header__sumbit {
+    background-color: #191a1b;
+    color: #fff;
+    border: 0.0625rem solid #fff; /* Используйте rem */
+    transition: background-color .3s ease;
+    &:hover{
+        background-color: #333;
+    }
+}
+.btn-header__sign {
+    transition: color .3s ease, background-color .3s ease;
+    &:hover{
+        background-color: #fff;
+        color: black;
+    }
+}
+
+/* Main */
+.search-header {
+    background-color: #DADBF1;
+    overflow: hidden;
+    position: relative;
+    padding-top: 5rem; /* Используйте rem */
+    padding-bottom: 7.2rem; /* Используйте rem */
+    box-sizing: content-box;
+    text-align: center; /* Центрируем содержимое на маленьких экранах */
+}
+.search-header__container-inner {
+    max-width: 800px; /* Ограничим ширину внутреннего контейнера */
+    margin: 0 auto; /* Центрируем контейнер */
+    padding: 0 1rem; /* Добавим внутренние отступы */
+}
+.main-help-text {
+    font-size: 3rem; /* Уменьшим шрифт для маленьких экранов */
+    letter-spacing: -0.25rem; /* Используйте rem */
+    font-weight: 400;
+    margin-bottom: 0.5rem; /* Используйте rem */
+}
+.field-search {
+    border: 0.0625rem solid black; /* Используйте rem */
+    background-color: white;
+    display: flex;
+    box-sizing: border-box; /* Изменим на border-box */
+    padding: 1rem; /* Используйте rem */
+    margin: 1rem auto; /* Центрируем и добавим отступы */
+    border-radius: var(--pix_border);
+    max-width: 600px; /* Ограничим ширину поля поиска */
+}
+#search-2{
+    border: none;
+    background: none;
+    font-size: 1rem; /* Используйте rem */
+    width: 100%;
+}
+.arrow-svg{
+    height: 2.25rem; /* Используйте rem */
+    width: 1.75rem; /* Используйте rem */
+    fill: #808080; /* Добавим цвет по умолчанию */
+}
+
+.grid-section {
+    width: 100%;
+    padding: 2rem 1rem; /* Уменьшим отступы по бокам на маленьких экранах */
+    margin: 5rem 0; /* Используйте rem */
+}
+.grid-section__list-element {
+    display: grid;
+    grid-template-areas:
+    "A B"
+    "A B"
+    "A B"
+    ;
+    padding: 0 10rem; /* Добавим внутренние отступы */
+}
+.list-element__element {
+    display: flex;
+    padding: 0;
+    margin: 5rem 0;
+}
+.element__img {
+    height: 5rem; /* Используйте rem */
+    width: 5rem; /* Используйте rem */
+    margin: 0 1.5rem; /* Центрируем изображение и добавим отступ вниз */
+}
+.element__content {
+    padding: 0;
+}
+.content__heading {
+    font-weight: 700;
+    font-size: 1.5rem; /* Используйте rem */
+    margin-bottom: 0.8rem; /* Используйте rem */
+}
+.content__text {
+    font-size: 1.5rem; /* Используйте rem */
+    margin-bottom: 1.25rem; /* Используйте rem */
+    line-height: 1.6;
+}
+.content__link {
+    color: #4C5FD5;
+    font-size: 1.25rem; /* Используйте rem */
+    &:hover{
+        color: #4C5FD5;
+
+    }
+}
+
+/* Footer */
+.footer__container {
+    background-color: black;
+    color: white;
+    top: 100%;
+    width: 100%;
+    min-height: 25.125rem;
+    padding: 0 30px 60px;
+}
+.container__inner {
+    margin: 0 auto;
+    width: 90%;
+    max-width: 1900px;
+    position: relative;
+    padding-bottom: 100px;
+}
+#copyright {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 20px;
+    line-height: 28px;
+}
+.footer-column {
+    width: 20%;
+    display: inline-block;
+    vertical-align: top;
+}
+.footer-title {
+    font-size: 24px;
+    line-height: 28px;
+    font-weight: bold;
+    padding: 15% 0 5% 0;
+}
+.footer__container a {
+    display: block;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
+.abstract-logo-footer {
+    height: 35px;
+    width: 35px;
+}
+.str {
+    font-weight: 600;
+    font-size: 16px;
+}
+#break {
+    margin-bottom: 30px;
+}
+
+/* Медиазапросы для адаптивности */
+
+/* Для экранов шириной до 768px (планшеты и маленькие экраны) */
+@media (max-width: 768px) {
+    .topbar-container {
+        flex-direction: column; /* Лого и меню располагаются вертикально */
+        align-items: flex-start; /* Выравниваем по левому краю */
+    }
+    .topbar-container__logo {
+        margin-bottom: 1rem; /* Отступ между лого и меню */
+    }
+    .topbar-container__menu {
+        flex-direction: column; /* Элементы меню вертикально */
+        width: 100%; /* Занимает всю ширину */
+    }
+    #search {
+        width: 100%; /* Поле поиска на всю ширину */
+        margin-right: 0; /* Убираем правый отступ */
+        margin-bottom: 0.5rem; /* Отступ вниз */
+    }
+    .topbar-container__btn-header {
+        width: 100%; /* Кнопки на всю ширину */
+        flex-direction: column; /* Кнопки вертикально */
+        align-items: stretch; /* Растягиваем кнопки на всю ширину */
+        gap: 0.5rem; /* Сохраняем отступ между кнопками */
+    }
+    .btn {
+        width: 100%; /* Кнопки на всю ширину */
+    }
+    .search-header {
+        padding-top: 3rem;
+        padding-bottom: 5rem;
+    }
+    .main-help-text {
+        font-size: 2rem;
+        letter-spacing: -0.1rem;
+    }
+    .field-search {
+        margin: 1rem auto;
+    }
+    .grid-section__list-element {
+        grid-template-areas:
+            "A"
+        ;
+        padding: 0 1rem; /* Уменьшаем внутренние отступы */
+    }
+    .list-element__element {
+        text-align: center; /* Возвращаем выравнивание текста влево */
+        flex-direction: column; /* Возвращаем вертикальное расположение */
+        align-items: center; /* Выравниваем по левому краю */
+        margin-bottom: 2rem; /* Уменьшим отступ между элементами */
+    }
+    .element__img {
+        margin: 0 0 1.5rem 0;
+    }
+    .footer-column {
+        width: 100%; /* Одна колонка на маленьких экранах */
+        margin-bottom: 1.5rem;
+    }
+    #copyright {
+        position: static; /* Возвращаем обычное позиционирование */
+        text-align: center;
+        padding-top: 1rem;
+    }
+}
+
+/* Для экранов шириной до 480px (самые маленькие смартфоны) */
+@media (max-width: 480px) {
+    .main-help-text {
+        font-size: 1.5rem;
+    }
+    .field-search {
+        padding: 0.8rem;
+    }
+    #search-2 {
+        font-size: 0.9rem;
+    }
+    .element__img {
+        height: 4rem;
+        width: 4rem;
+        margin-bottom: 1rem; /* Уменьшим отступ снизу */
+    }
+    .content__heading {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+    .content__text {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+        line-height: 1.4;
+    }
+    .content__link {
+        font-size: 0.8rem;
+    }
+    .help-btn {
+        padding: 0.5rem 1rem;
+        bottom: 0.5rem;
+        right: 0.5rem;
+    }
+    .help {
+        font-size: 0.7rem;
+        margin-left: 0.2rem;
+    }
+    .help-btn img {
+        width: 1.2rem;
+        height: 1.2rem;
+    }
+    .footer-title {
+        font-size: 20px;
+        line-height: 24px;
+        padding: 10% 0 3% 0;
+    }
+    .footer__container a {
+        font-size: 14px;
+        line-height: 20px;
+    }
+    #copyright {
+        font-size: 14px;
+        line-height: 20px;
+    }
+    .abstract-logo-footer {
+        height: 25px;
+        width: 25px;
+    }
+}
